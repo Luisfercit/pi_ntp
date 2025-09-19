@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Matrículas Universitarias - Tipo Power BI</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard de Matrículas en Educación Superior</h1>
+            <p>Análisis dinámico de datos de matrículas en Colombia (2015-2020)</p>
+        </header>
+
+        <section class="filtros">
+            <h2>Filtros Dinámicos</h2>
+            <div class="filtro-grupo">
+                <label for="institucion">Institución:</label>
+                <select id="institucion">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="programa">Programa Académico:</label>
+                <select id="programa">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="año">Año:</label>
+                <select id="año">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="genero">Género:</label>
+                <select id="genero">
+                    <option value="">Ambos</option>
+                    <option value="1">Hombres</option>
+                    <option value="2">Mujeres</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <label for="municipio">Municipio:</label>
+                <select id="municipio">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <button id="aplicarFiltros">Aplicar Filtros</button>
+            <button id="limpiarFiltros">Limpiar</button>
+        </section>
+
+        <section class="resumen">
+            <h2>Resumen General</h2>
+            <div id="totalMatriculas">Total de Matrículas: Cargando...</div>
+        </section>
+
+        <section class="graficos">
+            <h2>Gráficos Dinámicos</h2>
+            <div class="grafico">
+                <canvas id="graficoMatriculas"></canvas>
+            </div>
+            <div class="controles-grafico">
+                <label for="groupBy">Agrupar por:</label>
+                <select id="groupBy">
+                    <option value="Año">Año</option>
+                    <option value="Programa Académico">Programa Académico</option>
+                    <option value="Departamento de oferta del programa">Departamento</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="tabla-datos">
+            <h2>Datos Filtrados</h2>
+            <table id="tablaMatriculas">
+                <thead>
+                    <tr>
+                        <th>Institución</th>
+                        <th>Programa</th>
+                        <th>Departamento</th>
+                        <th>Año</th>
+                        <th>Género</th>
+                        <th>Matrículas</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
